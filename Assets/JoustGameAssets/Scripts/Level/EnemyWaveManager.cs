@@ -101,7 +101,7 @@ public class EnemyWaveManager : MonoBehaviour
 
         _wavetxt.text = "WAVE " + currentWave;
         _wavetxt.gameObject.SetActive(true);
-        AudioManager.PlaySound(SoundType.NEXTWAVE, .9f);
+        //AudioManager.PlaySound(SoundType.NEXTWAVE, .9f);
 
         if (currentWave == 3)
             BridgeBurnAnim();
@@ -180,7 +180,6 @@ public class EnemyWaveManager : MonoBehaviour
             {
                 Vector2 spawnPos = new Vector2(68, Random.Range(pteroMinMaxYSpawn.x, pteroMinMaxYSpawn.y));
                 Instantiate(enemyPrefab[3], spawnPos,  Quaternion.identity, transform);
-                Debug.Break();
             }
 
             if (i == waveData.pteros) break;

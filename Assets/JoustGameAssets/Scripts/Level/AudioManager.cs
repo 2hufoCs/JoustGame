@@ -36,6 +36,8 @@ public class AudioManager : MonoBehaviour
     /// <param name="volume"></param>
     public static void PlaySound(SoundType soundType, float volume = 1)
     {
+        Debug.Log("is soundlist null: " + Instance.soundList[(int)soundType]);
+        Debug.Log("how many sounds available: " + Instance.soundList[(int)soundType].Sounds.Length);
         AudioClip[] clips = Instance.soundList[(int)soundType].Sounds;
         AudioClip randomClip = clips[UnityEngine.Random.Range(0, clips.Length)];
 

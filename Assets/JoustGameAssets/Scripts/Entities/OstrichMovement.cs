@@ -49,7 +49,7 @@ public class OstrichMovement : MonoBehaviour
             if (_runSfxTimer >= 1.8f / xVel)
             {
                 _runSfxTimer = 0;
-                AudioManager.PlaySound(SoundType.RUN, .7f);
+                //AudioManager.PlaySound(SoundType.RUN, .7f);
             }
         }
     }
@@ -79,7 +79,7 @@ public class OstrichMovement : MonoBehaviour
             if (_skidSfxTimer >= .08f)
             {
                 _skidSfxTimer = 0;
-                AudioManager.PlaySound(SoundType.SKID, .6f);
+                //AudioManager.PlaySound(SoundType.SKID, .6f);
             }
         }
     }
@@ -88,7 +88,7 @@ public class OstrichMovement : MonoBehaviour
     {
         _rb.AddForce(Vector2.up * _data.jumpForce, ForceMode2D.Impulse);
         if (!_dying) _animator.SetTrigger("jumpTrigger");
-        if (_isPlayer) AudioManager.PlaySound(SoundType.FLAP, .7f);
+        if (_isPlayer) //AudioManager.PlaySound(SoundType.FLAP, .7f);
         
         Instantiate(flapParticles, transform.position + new Vector3(0, -1, -.001f), Quaternion.Euler(-90, 0, 0), transform);
     }
@@ -113,7 +113,7 @@ public class OstrichMovement : MonoBehaviour
             {
                 _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, 0);
             }
-            else AudioManager.PlaySound(SoundType.BOUNCE);
+            //else AudioManager.PlaySound(SoundType.BOUNCE);
         }
 
         if (other.gameObject.CompareTag("Player") && gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Enemy") && gameObject.CompareTag("Player"))
@@ -149,7 +149,7 @@ public class OstrichMovement : MonoBehaviour
             ScoreManager.OnScoreGained(_data.pointsOnDeath, transform.position);
             
             _animator.SetTrigger("dieTrigger");
-            AudioManager.PlaySound(SoundType.ENEMYDEATH, .5f);
+            //AudioManager.PlaySound(SoundType.ENEMYDEATH, .5f);
 
             GetComponent<CapsuleCollider2D>().enabled = false;
             _rb.bodyType = RigidbodyType2D.Static;
@@ -162,7 +162,7 @@ public class OstrichMovement : MonoBehaviour
         if (player._invicible) return;
         
         _animator.SetTrigger("dieTrigger");
-        AudioManager.PlaySound(SoundType.PLAYERDEATH, .5f);
+        //AudioManager.PlaySound(SoundType.PLAYERDEATH, .5f);
         player.OnPlayerDeath();
     }
 }

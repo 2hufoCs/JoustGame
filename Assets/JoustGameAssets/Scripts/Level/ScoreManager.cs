@@ -33,7 +33,7 @@ public class ScoreManager : MonoBehaviour
     private void GameOver()
     {
         DOTween.Sequence().AppendInterval(1).OnComplete(() => _gameOverText.SetActive(true));
-        AudioManager.PlaySound(SoundType.GAMEOVER);
+        //AudioManager.PlaySound(SoundType.GAMEOVER);
     }
 
     private void GainScore(int score, Vector3 posToPopup)
@@ -46,7 +46,7 @@ public class ScoreManager : MonoBehaviour
         scorePopup.GetComponent<TextMeshProUGUI>().text = score.ToString();
         scorePopup.transform.localScale = Vector2.zero;
         
-        AudioManager.PlaySound(SoundType.GAINSCORE, .9f);
+        //AudioManager.PlaySound(SoundType.GAINSCORE, .9f);
 
         DOTween.Sequence()
             .Append(scorePopup.transform.DOScale(1, .2f))
