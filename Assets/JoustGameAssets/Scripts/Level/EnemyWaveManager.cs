@@ -101,7 +101,7 @@ public class EnemyWaveManager : MonoBehaviour
 
         _wavetxt.text = "WAVE " + currentWave;
         _wavetxt.gameObject.SetActive(true);
-        //AudioManager.PlaySound(SoundType.NEXTWAVE, .9f);
+        AudioManager.PlaySound(SoundType.NEXTWAVE, .9f);
 
         if (currentWave == 3)
             BridgeBurnAnim();

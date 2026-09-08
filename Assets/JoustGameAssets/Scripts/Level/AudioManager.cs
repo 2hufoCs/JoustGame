@@ -26,7 +26,7 @@ public class AudioManager : MonoBehaviour
     {
         if (Instance != null && Instance != this) Destroy(Instance);
         Instance = this;
-        if (Application.isPlaying) DontDestroyOnLoad(this);
+        //if (Application.isPlaying) DontDestroyOnLoad(this);
     }
 
     /// <summary>
@@ -134,7 +134,11 @@ public class AudioManager : MonoBehaviour
         string[] names = Enum.GetNames(typeof(SoundType));
         Array.Resize(ref soundList, names.Length);
         for (int i = 0; i < soundList.Length; i++)
+        {
             soundList[i].name = names[i];
+            Debug.Log(names[i]);
+        }
+        Debug.Log("just reinitialized soundlist array");
     }
 #endif
 }
@@ -142,7 +146,10 @@ public class AudioManager : MonoBehaviour
 [Serializable]
 public struct SoundList
 {
-    public readonly AudioClip[] Sounds { get; }
+    public readonly AudioClip[] Sounds
+    {
+        get { return sounds; }
+    }
     [HideInInspector] public string name;
     [SerializeField] private AudioClip[] sounds;
 }
